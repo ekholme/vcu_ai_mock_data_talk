@@ -1,0 +1,77 @@
+---
+title: "Generating Mock Data Using Data Schemas"
+author: "Eric Ekholm"
+format: revealjs
+---
+
+## The Problem
+
+We want to use AI coding assistants to help us analyze data...but we *really shouldn't* let an agent slurp up a bunch of PII
+
+## Two Solutions
+
+1. Strip any PII from your *real* data
+2. Generate mock data
+
+## Why Mock Data?
+
+1. It's safer than providing agents access to your real, anonymized data.
+2. AI agents are *very good* at generating fake data.
+3. You can generate mock data before you have any real data.
+
+## How?
+
+- Provide a structured *data schema* that describes features of the data you want.
+- [YAML](https://yaml.org/) is a convenient format, but you could use something else.
+
+## What Does This Look Like?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+```yaml
+key: value
+
+foods:
+  - veggies: carrots
+  - fruits:
+      oranges: orange
+      apples: red
+      grapes: purple
+  - meat:
+      - chicken
+      - beef
+      - fish
+```
+:::
+
+::: {.column width="60%"}
+```yaml
+source:
+  table_name: survey_data
+  db_path: data/mock_data.db
+  primary_key:
+    - ID
+    - SurveyWindow
+
+columns:
+  ID: int
+  SurveyWindow:
+    type: char
+    valid_values:
+      - "Fall"
+      - "Winter"
+      - "Spring"
+  Question1: int
+  Question2: int
+```
+:::
+::::
+
+## Give This To Your Agent
+
+"Use `my_data_schema.yaml` to create mock data for this project. Write any necessary data-generation code in the `mocks/` directory. Save it to the database file and table name specified in the data schema. Write tests to validate the data as well."
+
+## Give AI Access to Your Mock Data
+
+"Conduct an exploratory data analysis of the data in the survey_data table in `data/mock_data.db`. Use R to conduct the exploration, and save your code in `R/survey_eda.R`"
