@@ -204,18 +204,18 @@ Eric Ekholm
 </div>
 
 </section>
-<section id="the-problem" class="slide level2">
+<section id="the-problem" class="slide level2 center">
 <h2>The Problem</h2>
 <p>We want to use AI coding assistants to help us analyze data…but we <em>really shouldn’t</em> let an agent slurp up a bunch of PII</p>
 </section>
-<section id="two-solutions" class="slide level2">
+<section id="two-solutions" class="slide level2 center">
 <h2>Two Solutions</h2>
 <ol type="1">
 <li>Strip any PII from your <em>real</em> data</li>
 <li>Generate mock data</li>
 </ol>
 </section>
-<section id="why-mock-data" class="slide level2">
+<section id="why-mock-data" class="slide level2 center">
 <h2>Why Mock Data?</h2>
 <ol type="1">
 <li>It’s safer than providing agents access to your real, anonymized data.</li>
@@ -223,18 +223,17 @@ Eric Ekholm
 <li>You can generate mock data before you have any real data.</li>
 </ol>
 </section>
-<section id="how" class="slide level2">
+<section id="how" class="slide level2 center">
 <h2>How?</h2>
 <ul>
 <li>Provide a structured <em>data schema</em> that describes features of the data you want.</li>
 <li><a href="https://yaml.org/">YAML</a> is a convenient format, but you could use something else.</li>
 </ul>
 </section>
-<section id="what-does-this-look-like" class="slide level2">
+<section id="what-does-this-look-like" class="slide level2 center">
 <h2>What Does This Look Like?</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<p>YAML files contain sets of (potentially hierarchical) key-value pairs, like this:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href=""></a><span class="fu">key</span><span class="kw">:</span><span class="at"> value</span></span>
 <span id="cb1-2"><a href=""></a></span>
 <span id="cb1-3"><a href=""></a><span class="fu">foods</span><span class="kw">:</span></span>
@@ -267,13 +266,13 @@ Eric Ekholm
 <span id="cb2-17"><a href=""></a><span class="at">  </span><span class="fu">Question2</span><span class="kw">:</span><span class="at"> int</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
-<section id="give-this-to-your-agent" class="slide level2">
+<section id="give-this-to-your-agent" class="slide level2 center">
 <h2>Give This To Your Agent</h2>
 <p>“Use <code>my_data_schema.yaml</code> to create mock data for this project. Write any necessary data-generation code in the <code>mocks/</code> directory. Save it to the database file and table name specified in the data schema. Write tests to validate the data as well.”</p>
 </section>
-<section id="give-ai-access-to-your-mock-data" class="slide level2">
+<section id="give-ai-access-to-your-mock-data" class="slide level2 center">
 <h2>Give AI Access to Your Mock Data</h2>
-<p>“Conduct an exploratory data analysis of the data in the survey_data table in <code>data/mock_data.db</code>. Use R to conduct the exploration, and save your code in <code>R/survey_eda.R</code>”</p>
+<p>“Conduct an exploratory data analysis of the data in the survey_data table in <code>data/mock_data.db</code>. Use R to conduct the exploration, and save your code in <code>R/survey_eda.R</code>. NEVER attempt to read data outside of <code>mock_data.db</code>”</p>
 
 </section>
     </div>
@@ -361,7 +360,7 @@ Eric Ekholm
         disableLayout: false,
 
         // Vertical centering of slides
-        center: false,
+        center: true,
 
         // Enables touch navigation on devices with touch input
         touch: true,
