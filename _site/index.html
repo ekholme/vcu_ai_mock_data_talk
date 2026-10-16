@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="ai_data_mocks_files/libs/clipboard/clipboard.min.js"></script>
-<script src="ai_data_mocks_files/libs/quarto-html/tabby.min.js"></script>
-<script src="ai_data_mocks_files/libs/quarto-html/popper.min.js"></script>
-<script src="ai_data_mocks_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="ai_data_mocks_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="ai_data_mocks_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="ai_data_mocks_files/libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Eric Ekholm">
@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="ai_data_mocks_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="ai_data_mocks_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -95,11 +95,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="ai_data_mocks_files/libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
-  <link href="ai_data_mocks_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="ai_data_mocks_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="ai_data_mocks_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="ai_data_mocks_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -204,18 +204,18 @@ Eric Ekholm
 </div>
 
 </section>
-<section id="the-problem" class="slide level2">
+<section id="the-problem" class="slide level2 center">
 <h2>The Problem</h2>
 <p>We want to use AI coding assistants to help us analyze data…but we <em>really shouldn’t</em> let an agent slurp up a bunch of PII</p>
 </section>
-<section id="two-solutions" class="slide level2">
+<section id="two-solutions" class="slide level2 center">
 <h2>Two Solutions</h2>
 <ol type="1">
 <li>Strip any PII from your <em>real</em> data</li>
 <li>Generate mock data</li>
 </ol>
 </section>
-<section id="why-mock-data" class="slide level2">
+<section id="why-mock-data" class="slide level2 center">
 <h2>Why Mock Data?</h2>
 <ol type="1">
 <li>It’s safer than providing agents access to your real, anonymized data.</li>
@@ -223,14 +223,14 @@ Eric Ekholm
 <li>You can generate mock data before you have any real data.</li>
 </ol>
 </section>
-<section id="how" class="slide level2">
+<section id="how" class="slide level2 center">
 <h2>How?</h2>
 <ul>
 <li>Provide a structured <em>data schema</em> that describes features of the data you want.</li>
 <li><a href="https://yaml.org/">YAML</a> is a convenient format, but you could use something else.</li>
 </ul>
 </section>
-<section id="what-does-this-look-like" class="slide level2">
+<section id="what-does-this-look-like" class="slide level2 center">
 <h2>What Does This Look Like?</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -248,9 +248,9 @@ Eric Ekholm
 <span id="cb1-12"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> fish</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:60%;">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href=""></a><span class="fu">source</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href=""></a><span class="at">  </span><span class="fu">table_name</span><span class="kw">:</span><span class="at"> survey_data</span></span>
-<span id="cb2-3"><a href=""></a><span class="at">  </span><span class="fu">db_path</span><span class="kw">:</span><span class="at"> data/mock_data.db</span></span>
-<span id="cb2-4"><a href=""></a><span class="at">  </span><span class="fu">primary_key</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href=""></a><span class="at">  </span><span class="fu">file_format</span><span class="kw">:</span><span class="at"> csv</span></span>
+<span id="cb2-3"><a href=""></a><span class="at">  </span><span class="fu">file_name</span><span class="kw">:</span><span class="at"> data/mock_data.csv</span></span>
+<span id="cb2-4"><a href=""></a><span class="at">  </span><span class="fu">primary_key</span><span class="kw">:</span><span class="co"> # unique identifiers</span></span>
 <span id="cb2-5"><a href=""></a><span class="at">    </span><span class="kw">-</span><span class="at"> ID</span></span>
 <span id="cb2-6"><a href=""></a><span class="at">    </span><span class="kw">-</span><span class="at"> SurveyWindow</span></span>
 <span id="cb2-7"><a href=""></a></span>
@@ -262,17 +262,20 @@ Eric Ekholm
 <span id="cb2-13"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Fall"</span></span>
 <span id="cb2-14"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Winter"</span></span>
 <span id="cb2-15"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Spring"</span></span>
-<span id="cb2-16"><a href=""></a><span class="at">  </span><span class="fu">Question1</span><span class="kw">:</span><span class="at"> int</span></span>
-<span id="cb2-17"><a href=""></a><span class="at">  </span><span class="fu">Question2</span><span class="kw">:</span><span class="at"> int</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-16"><a href=""></a><span class="at">  </span><span class="fu">Question1</span><span class="kw">:</span></span>
+<span id="cb2-17"><a href=""></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> int</span></span>
+<span id="cb2-18"><a href=""></a><span class="at">    </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb2-19"><a href=""></a><span class="at">    </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb2-20"><a href=""></a><span class="at">  </span><span class="fu">Question2</span><span class="kw">:</span><span class="at"> int</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
-<section id="give-this-to-your-agent" class="slide level2">
+<section id="give-this-to-your-agent" class="slide level2 center">
 <h2>Give This To Your Agent</h2>
-<p>“Use <code>my_data_schema.yaml</code> to create mock data for this project. Write any necessary data-generation code in the mocks/ directory. Save it to the database file and table name specified in the data schema. Write tests to validate the data as well.”</p>
+<p>“Use <code>my_data_schema.yaml</code> to create mock data for this project. Write any necessary data-generation code in the <code>mocks/</code> directory. Save it to the file specified in the data schema. Write tests to validate the data as well.”</p>
 </section>
-<section id="give-ai-access-to-your-mock-data" class="slide level2">
+<section id="give-ai-access-to-your-mock-data" class="slide level2 center">
 <h2>Give AI Access to Your Mock Data</h2>
-<p>“Conduct an exploratory data analysis of the data in the survey_data table in data/mock_data.db. Use R to conduct the exploration, and save your code in <code>R/survey_eda.R</code>”</p>
+<p>“Conduct an exploratory data analysis of the data in the survey_data table in <code>data/mock_data.csv</code>. Use R to conduct the exploration, and save your code in <code>R/survey_eda.R</code>. NEVER attempt to read data outside of <code>mock_data.csv</code>”</p>
 
 </section>
     </div>
@@ -283,19 +286,19 @@ Eric Ekholm
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="ai_data_mocks_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="ai_data_mocks_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="ai_data_mocks_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="ai_data_mocks_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="ai_data_mocks_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="ai_data_mocks_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="ai_data_mocks_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="ai_data_mocks_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="ai_data_mocks_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="ai_data_mocks_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -360,7 +363,7 @@ Eric Ekholm
         disableLayout: false,
 
         // Vertical centering of slides
-        center: false,
+        center: true,
 
         // Enables touch navigation on devices with touch input
         touch: true,
