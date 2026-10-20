@@ -228,54 +228,111 @@ Eric Ekholm
 <ul>
 <li>Provide a structured <em>data schema</em> that describes features of the data you want.</li>
 <li><a href="https://yaml.org/">YAML</a> is a convenient format, but you could use something else.</li>
+<li>YAML is human-readable and standard across AI code tools.</li>
 </ul>
 </section>
 <section id="what-does-this-look-like" class="slide level2 center">
 <h2>What Does This Look Like?</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href=""></a><span class="fu">key</span><span class="kw">:</span><span class="at"> value</span></span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a><span class="fu">foods</span><span class="kw">:</span></span>
-<span id="cb1-4"><a href=""></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">veggies</span><span class="kw">:</span><span class="at"> carrots</span></span>
-<span id="cb1-5"><a href=""></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">fruits</span><span class="kw">:</span></span>
-<span id="cb1-6"><a href=""></a><span class="at">      </span><span class="fu">oranges</span><span class="kw">:</span><span class="at"> orange</span></span>
-<span id="cb1-7"><a href=""></a><span class="at">      </span><span class="fu">apples</span><span class="kw">:</span><span class="at"> red</span></span>
-<span id="cb1-8"><a href=""></a><span class="at">      </span><span class="fu">grapes</span><span class="kw">:</span><span class="at"> purple</span></span>
-<span id="cb1-9"><a href=""></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">meat</span><span class="kw">:</span></span>
-<span id="cb1-10"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> chicken</span></span>
-<span id="cb1-11"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> beef</span></span>
-<span id="cb1-12"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> fish</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href=""></a><span class="co"># my_schema.yaml</span></span>
+<span id="cb1-2"><a href=""></a><span class="fu">project</span><span class="kw">:</span><span class="at"> my_survey</span></span>
+<span id="cb1-3"><a href=""></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.0</span></span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a><span class="fu">survey_sites</span><span class="kw">:</span></span>
+<span id="cb1-6"><a href=""></a><span class="at">  </span><span class="kw">-</span><span class="at"> Gatsby Elementary</span></span>
+<span id="cb1-7"><a href=""></a><span class="at">  </span><span class="kw">-</span><span class="at"> Carraway Middle</span></span>
+<span id="cb1-8"><a href=""></a><span class="at">  </span><span class="kw">-</span><span class="at"> Buchanan High</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:60%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href=""></a><span class="fu">source</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href=""></a><span class="at">  </span><span class="fu">file_format</span><span class="kw">:</span><span class="at"> csv</span></span>
-<span id="cb2-3"><a href=""></a><span class="at">  </span><span class="fu">file_name</span><span class="kw">:</span><span class="at"> data/mock_data.csv</span></span>
-<span id="cb2-4"><a href=""></a><span class="at">  </span><span class="fu">primary_key</span><span class="kw">:</span><span class="co"> # unique identifiers</span></span>
-<span id="cb2-5"><a href=""></a><span class="at">    </span><span class="kw">-</span><span class="at"> ID</span></span>
-<span id="cb2-6"><a href=""></a><span class="at">    </span><span class="kw">-</span><span class="at"> SurveyWindow</span></span>
-<span id="cb2-7"><a href=""></a></span>
-<span id="cb2-8"><a href=""></a><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb2-9"><a href=""></a><span class="at">  </span><span class="fu">ID</span><span class="kw">:</span><span class="at"> int</span></span>
-<span id="cb2-10"><a href=""></a><span class="at">  </span><span class="fu">SurveyWindow</span><span class="kw">:</span></span>
-<span id="cb2-11"><a href=""></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> char</span></span>
-<span id="cb2-12"><a href=""></a><span class="at">    </span><span class="fu">valid_values</span><span class="kw">:</span></span>
-<span id="cb2-13"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Fall"</span></span>
-<span id="cb2-14"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Winter"</span></span>
-<span id="cb2-15"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Spring"</span></span>
-<span id="cb2-16"><a href=""></a><span class="at">  </span><span class="fu">Question1</span><span class="kw">:</span></span>
-<span id="cb2-17"><a href=""></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> int</span></span>
-<span id="cb2-18"><a href=""></a><span class="at">    </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
-<span id="cb2-19"><a href=""></a><span class="at">    </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
-<span id="cb2-20"><a href=""></a><span class="at">  </span><span class="fu">Question2</span><span class="kw">:</span><span class="at"> int</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href=""></a><span class="co"># my_other_schema.yaml</span></span>
+<span id="cb2-2"><a href=""></a><span class="fu">source</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href=""></a><span class="at">  </span><span class="fu">file_format</span><span class="kw">:</span><span class="at"> csv</span></span>
+<span id="cb2-4"><a href=""></a><span class="at">  </span><span class="fu">file_name</span><span class="kw">:</span><span class="at"> data/mock_data.csv</span></span>
+<span id="cb2-5"><a href=""></a><span class="at">  </span><span class="fu">primary_key</span><span class="kw">:</span><span class="co"> # unique identifiers</span></span>
+<span id="cb2-6"><a href=""></a><span class="at">    </span><span class="kw">-</span><span class="at"> ID</span></span>
+<span id="cb2-7"><a href=""></a><span class="at">    </span><span class="kw">-</span><span class="at"> SurveyWindow</span></span>
+<span id="cb2-8"><a href=""></a></span>
+<span id="cb2-9"><a href=""></a><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb2-10"><a href=""></a><span class="at">  </span><span class="fu">ID</span><span class="kw">:</span><span class="at"> int</span></span>
+<span id="cb2-11"><a href=""></a><span class="at">  </span><span class="fu">SurveyWindow</span><span class="kw">:</span></span>
+<span id="cb2-12"><a href=""></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> char</span></span>
+<span id="cb2-13"><a href=""></a><span class="at">    </span><span class="fu">valid_values</span><span class="kw">:</span></span>
+<span id="cb2-14"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Fall"</span></span>
+<span id="cb2-15"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Winter"</span></span>
+<span id="cb2-16"><a href=""></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Spring"</span></span>
+<span id="cb2-17"><a href=""></a><span class="at">  </span><span class="fu">Question1</span><span class="kw">:</span></span>
+<span id="cb2-18"><a href=""></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> int</span></span>
+<span id="cb2-19"><a href=""></a><span class="at">    </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb2-20"><a href=""></a><span class="at">    </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb2-21"><a href=""></a><span class="at">  </span><span class="fu">Question2</span><span class="kw">:</span><span class="at"> int</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
 <section id="give-this-to-your-agent" class="slide level2 center">
 <h2>Give This To Your Agent</h2>
-<p>“Use <code>my_data_schema.yaml</code> to create mock data for this project. Write any necessary data-generation code in the <code>mocks/</code> directory. Save it to the file specified in the data schema. Write tests to validate the data as well.”</p>
+<p>“Use <code>my_data_schema.yaml</code> to create mock data for this project. Write any necessary data-generation code in the <code>mocks/</code> directory. Save it to the file specified in the data schema. Write unit tests to validate the data as well.”</p>
 </section>
 <section id="give-ai-access-to-your-mock-data" class="slide level2 center">
 <h2>Give AI Access to Your Mock Data</h2>
 <p>“Conduct an exploratory data analysis of the data in the survey_data table in <code>data/mock_data.csv</code>. Use R to conduct the exploration, and save your code in <code>R/survey_eda.R</code>. NEVER attempt to read data outside of <code>mock_data.csv</code>”</p>
+</section>
+<section id="substitute-real-data-when-you-have-it" class="slide level2 center">
+<h2>Substitute Real Data When You Have It</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># analysis.R</span></span>
+<span id="cb3-2"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/mock_data.csv"</span>) <span class="co"># &lt;--- Mock Data</span></span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a><span class="fu">validate_data</span>(x)</span>
+<span id="cb3-7"><a href=""></a></span>
+<span id="cb3-8"><a href=""></a>x_clean <span class="ot">&lt;-</span> x <span class="sc">|&gt;</span></span>
+<span id="cb3-9"><a href=""></a>  <span class="fu">recode_race_ethnicity</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-10"><a href=""></a>  <span class="fu">standardize_sch_names</span>()</span>
+<span id="cb3-11"><a href=""></a><span class="co"># etc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># analysis.R</span></span>
+<span id="cb4-2"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/real_data.csv"</span>) <span class="co"># &lt;--- Real Data</span></span>
+<span id="cb4-5"><a href=""></a></span>
+<span id="cb4-6"><a href=""></a><span class="fu">validate_data</span>(x)</span>
+<span id="cb4-7"><a href=""></a></span>
+<span id="cb4-8"><a href=""></a>x_clean <span class="ot">&lt;-</span> x <span class="sc">|&gt;</span></span>
+<span id="cb4-9"><a href=""></a>  <span class="fu">recode_race_ethnicity</span>() <span class="sc">|&gt;</span></span>
+<span id="cb4-10"><a href=""></a>  <span class="fu">standardize_sch_names</span>()</span>
+<span id="cb4-11"><a href=""></a><span class="co"># etc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="uses-and-non-uses" class="slide level2 center">
+<h2>Uses and Non-Uses</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Uses:</strong></p>
+<ul>
+<li>Validate integrity of your data</li>
+<li>Create draft analysis scripts that run without errors</li>
+<li>Share data without FERPA/data privacy violations</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Non-Uses:</strong></p>
+<ul>
+<li>Fine-tune analyses based on patterns in <em>real</em> data</li>
+<li>Draw substantive conclusions</li>
+</ul>
+</div></div>
+</section>
+<section id="a-possible-workflow" class="slide level2 center">
+<h2>A Possible Workflow</h2>
+<ol type="1">
+<li>Define Data Schema (.yaml)</li>
+<li>AI Generates Mock Data, Tests, and Analysis Code</li>
+<li>Swap in Real Data When Available</li>
+<li>Fine-Tune Analysis</li>
+</ol>
+</section>
+<section id="questions" class="slide level2 center">
+<h2>Questions?</h2>
 
 </section>
     </div>
