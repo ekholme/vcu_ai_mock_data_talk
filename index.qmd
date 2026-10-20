@@ -46,7 +46,7 @@ survey_sites:
 
 ::: {.column width="60%"}
 ```yaml
-# my_other_schema.yaml
+# my_data_schema.yaml
 source:
   file_format: csv
   file_name: data/mock_data.csv
@@ -85,7 +85,7 @@ columns:
 
 ::: {.column width="50%"}
 ```r
-# analysis.R
+# R/survey_eda.R
 library(tidyverse)
 
 x <- read_csv("data/mock_data.csv") # <--- Mock Data
@@ -101,7 +101,7 @@ x_clean <- x |>
 
 ::: {.column width="50%"}
 ```r
-# analysis.R
+# R/survey_eda.R
 library(tidyverse)
 
 x <- read_csv("data/real_data.csv") # <--- Real Data
