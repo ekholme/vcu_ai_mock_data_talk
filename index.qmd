@@ -25,6 +25,7 @@ We want to use AI coding assistants to help us analyze data...but we *really sho
 
 - Provide a structured *data schema* that describes features of the data you want.
 - [YAML](https://yaml.org/) is a convenient format, but you could use something else.
+- YAML is human-readable and standard across AI code tools.
 
 ## What Does This Look Like?
 
@@ -32,23 +33,20 @@ We want to use AI coding assistants to help us analyze data...but we *really sho
 
 ::: {.column width="40%"}
 ```yaml
-key: value
+# my_schema.yaml
+project: my_survey
+version: 1.0
 
-foods:
-  - veggies: carrots
-  - fruits:
-      oranges: orange
-      apples: red
-      grapes: purple
-  - meat:
-      - chicken
-      - beef
-      - fish
+survey_sites:
+  - Gatsby Elementary
+  - Carraway Middle
+  - Buchanan High
 ```
 :::
 
 ::: {.column width="60%"}
 ```yaml
+# my_other_schema.yaml
 source:
   file_format: csv
   file_name: data/mock_data.csv
@@ -75,8 +73,75 @@ columns:
 
 ## Give This To Your Agent
 
-"Use `my_data_schema.yaml` to create mock data for this project. Write any necessary data-generation code in the `mocks/` directory. Save it to the file specified in the data schema. Write tests to validate the data as well."
+"Use `my_data_schema.yaml` to create mock data for this project. Write any necessary data-generation code in the `mocks/` directory. Save it to the file specified in the data schema. Write unit tests to validate the data as well."
 
 ## Give AI Access to Your Mock Data
 
 "Conduct an exploratory data analysis of the data in the survey_data table in `data/mock_data.csv`. Use R to conduct the exploration, and save your code in `R/survey_eda.R`. NEVER attempt to read data outside of `mock_data.csv`"
+
+## Substitute Real Data When You Have It
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```r
+# analysis.R
+library(tidyverse)
+
+x <- read_csv("data/mock_data.csv") # <--- Mock Data
+
+validate_data(x)
+
+x_clean <- x |>
+  recode_race_ethnicity() |>
+  standardize_sch_names()
+# etc
+```
+:::
+
+::: {.column width="50%"}
+```r
+# analysis.R
+library(tidyverse)
+
+x <- read_csv("data/real_data.csv") # <--- Real Data
+
+validate_data(x)
+
+x_clean <- x |>
+  recode_race_ethnicity() |>
+  standardize_sch_names()
+# etc
+```
+
+:::
+::::
+
+## Uses and Non-Uses
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Uses:**
+
+- Validate integrity of your data
+- Create draft analysis scripts that run without errors
+- Share data without FERPA/data privacy violations
+:::
+
+::: {.column width="50%"}
+**Non-Uses:**
+
+- Fine-tune analyses based on patterns in *real* data 
+- Draw substantive conclusions
+:::
+::::
+
+## A Possible Workflow
+
+1. Define Data Schema (.yaml)
+2. AI Generates Mock Data, Tests, and Analysis Code
+3. Swap in Real Data When Available
+4. Fine-Tune Analysis
+
+## Questions?
